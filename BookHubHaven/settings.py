@@ -132,7 +132,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-CSRF_TRUSTED_ORIGINS = ['https://bookhubhaven.onrender.com','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://library-final2.onrender.com','https://*.127.0.0.1','http://127.0.0.1:8000/']
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
