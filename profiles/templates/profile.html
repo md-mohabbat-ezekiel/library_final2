@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head_title %}Borrowed Book List{% endblock head_title %}
+
+{% block content %}
+<div style='width: 90%; margin:auto;'>
+    <div class="overflow-x-auto p-4">
+        <table class="table  table-dark">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th class="font-bold text-center">Book Id</th>
+              <th class="font-bold text-center">Book Name</th>
+              <th class="font-bold text-center">User Name</th>
+              <th class="font-bold text-center">User Email</th>
+              <th class="font-bold text-center">Borrow Amount</th>
+              <th class="font-bold text-center">Borrow Date</th>
+              <th class="font-bold text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for borrowed in borrowers %}
+              <tr>
+                    <td class='text-center'>{{borrowed.book.id}}</td>
+                  <td>
+                      <div class="flex items-center gap-3">
+                          <div class="avatar">
+                              <div class="mask mask-squircle w-12 h-12">
+                                  <img class = 'rounded m-2' style='height: 100px; width: 100px;' src="{{borrowed.book.image.url}}" alt="Book" />
+                              </div>
+                          </div>
+                          <div>
+                              <div class="font-bold">{{borrowed.book.Name}}</div>
+                          </div>
+                      </div>
+                  </td>
+                  <td>{{request.user.first_name}} {{request.user.last_name}} </td>
+                  <td>{{ request.user.email }}</td>
+                  <td class='text-center'>{{ borrowed.book.price }}</td>
+                  <td>{{ borrowed.date|date:"jS F Y" }}</td>
+                  <th>
+                      <a href="{% url "details_view" borrowed.book.id %}" class="btn btn-outline-success btn-xs">Review Book</a>
+                      <a href="{% url "return" borrowed.id %}" class="btn btn-outline-warning btn-xs">Return Book</a>
+                  </th>
+              </tr>
+            {% endfor %}
+          </tbody>
+          
+        </table>
+      </div>
+</div>
+{% endblock content %}

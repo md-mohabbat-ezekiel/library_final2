@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div  style="height: 400px;" class="d-none d-md-block">
+    {{user_balance}}
+<img style='height:99%; width:100%' src="{% static "image/lib.jpg" %}" alt="">
+</div>
+<div  style="height: 200px;" class="d-block d-sm-none">
+    <img style='height:99%; width:100%' src="{% static "image/lib.jpg" %}" alt="">
+    </div>
+<div  class="container-fluid mx-auto d-flex flex-column flex-md-row align-items-center">    
+    <div class="flex flex-column w-100 p-4 w-lg-50 justify-content-center items-start pt-12 pb-24 px-6 bg-white rounded bg-opacity-10  mx-3 m-4">
+        <h1 class="my-4 text-center ">Welcome to <span class='text-primary'>Book</span> <span class='text-warning'>Haven</span> </h1>
+        <p class=" m-4">
+            This is the best library in the country. It is open for everybody. Enhance your knowledge by reading books. A book is the best friend for all. If you enjoy reading, you will find the meaning of life.
+        </p>
+        <div class="d-flex justify-content-center w-100">
+            <a href="{% url "book" %}" class="btn btn-primary rounded hover:bg-white hover:text-blue-900 hover:border-blue-900 shadow hover:shadow-lg py-2 px-4 border border-hover:border-transparent">Read</a>
+        </div>
+    </div>
+    <div  style="height: 400px;" class="">
+        <img  style='height:90%; width:100%' class="img-fluid rounded-2xl w-100 rounded-pill" src="{% static "image/fairyBook.jpg" %}" alt="Book Image">
+    </div>
+</div>
+
+
+{% endblock  %}
